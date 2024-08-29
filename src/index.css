@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Общие стили для приложения */
+body {
+    @apply bg-gray-100 text-gray-900 antialiased;
+}
+
+#root {
+    @apply flex items-center justify-center h-screen;
+}
+
+/* Стиль контейнера чата */
+.chat-container {
+    @apply flex flex-col bg-white rounded-lg shadow-lg overflow-hidden max-w-lg w-full;
+}
+
+/* Заголовок чата */
+.chat-header {
+    @apply bg-blue-600 text-white px-4 py-2 flex items-center justify-between;
+}
+
+/* Стиль для сообщения */
+.chat-message {
+    @apply p-2;
+}
+
+/* Стиль для входящего сообщения */
+.message-incoming {
+    @apply bg-gray-200 text-black rounded-lg px-4 py-2 mb-2;
+}
+
+/* Стиль для исходящего сообщения */
+.message-outgoing {
+    @apply bg-blue-500 text-white rounded-lg px-4 py-2 mb-2 ml-auto;
+}
+
+/* Контейнер для сообщений */
+.messages-container {
+    @apply flex-1 overflow-y-auto p-4;
+}
+
+/* Стиль для нижней панели чата */
+.chat-footer {
+    @apply bg-gray-100 p-2 flex items-center;
+}
+
+/* Поле ввода текста */
+.input-message {
+    @apply flex-1 bg-gray-200 rounded-full px-4 py-2 outline-none;
+}
+
+/* Кнопка отправки */
+.send-button {
+    @apply bg-blue-600 text-white rounded-full p-2 ml-2;
+}
