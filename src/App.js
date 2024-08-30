@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  // Импорт useState
+import React, { useState } from 'react';  // Г€Г¬ГЇГ®Г°ГІ useState
 import JoinChatMenu from './components/JoinChatMenu';
 import { HubConnectionBuilder } from '@microsoft/signalr';
 import { Chat } from './components/Chat';
@@ -11,6 +11,12 @@ function App() {
 
 
     const joinChat = async (userName, chatRoom) => {
+        setMessages([]);
+
+  // Р•СЃР»Рё СѓР¶Рµ СЃСѓС‰РµСЃС‚РІСѓРµС‚ РїРѕРґРєР»СЋС‡РµРЅРёРµ, РѕС‚РєР»СЋС‡Р°РµРј РµРіРѕ
+  if (connection) {
+      await connection.stop();
+  }
         const newConnection = new HubConnectionBuilder()
             .withUrl("http://localhost:5272/chat")
             .withAutomaticReconnect()
@@ -27,7 +33,7 @@ function App() {
             await newConnection.invoke("JoinChat", { userName, chatRoom });
             setConnection(newConnection);
             setChatRoom(chatRoom);
-            console.log(newConnection); // Должно выводиться, если соединение успешно
+            console.log(newConnection); // Г„Г®Г«Г¦Г­Г® ГўГ»ГўГ®Г¤ГЁГІГјГ±Гї, ГҐГ±Г«ГЁ Г±Г®ГҐГ¤ГЁГ­ГҐГ­ГЁГҐ ГіГ±ГЇГҐГёГ­Г®
         } catch (error) {
             console.log(error);
         }
